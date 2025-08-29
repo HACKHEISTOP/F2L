@@ -18,20 +18,20 @@ def str_to_int_set(val: str) -> Set[int]:
     return {int(x) for x in val.split() if x.isdigit()} if val else set()
 
 class Var:
-    API_ID: int = int(os.getenv("API_ID", ""))
-    API_HASH: str = os.getenv("API_HASH", "")
-    BOT_TOKEN: str = os.getenv("BOT_TOKEN", "")
+    API_ID: int = int(os.getenv("API_ID", "22182189"))
+    API_HASH: str = os.getenv("API_HASH", "5e7c4088f8e23d0ab61e29ae11960bf5")
+    BOT_TOKEN: str = os.getenv("BOT_TOKEN", "7619023501:AAHss5lGMlr6wzMztPlBW6B6CKtfezeDVQw")
 
     if not all([API_ID, API_HASH, BOT_TOKEN]):
         logger.critical("Missing required Telegram API configuration")
         raise ValueError("Missing required Telegram API configuration")
 
-    NAME: str = os.getenv("NAME", "ThunderF2L")
+    NAME: str = os.getenv("NAME", "Schedulesfbot")
     SLEEP_THRESHOLD: int = int(os.getenv("SLEEP_THRESHOLD", "600"))
     WORKERS: int = int(os.getenv("WORKERS", "8"))
     TIMEOUT: int = int(os.getenv("TIMEOUT", "90"))
 
-    BIN_CHANNEL: int = int(os.getenv("BIN_CHANNEL", "0"))
+    BIN_CHANNEL: int = int(os.getenv("BIN_CHANNEL", "-1002927760779"))
 
     if not BIN_CHANNEL:
         logger.critical("BIN_CHANNEL is required")
@@ -43,12 +43,12 @@ class Var:
     NO_PORT: bool = str_to_bool(os.getenv("NO_PORT", "True"))
     CACHE_SIZE: int = int(os.getenv("CACHE_SIZE", "100"))
 
-    OWNER_ID: int = int(os.getenv("OWNER_ID", ""))
+    OWNER_ID: int = int(os.getenv("OWNER_ID", "5748674252"))
 
     if not OWNER_ID:
         logger.warning("WARNING: OWNER_ID is not set. No user will be granted owner access.")
 
-    OWNER_USERNAME: str = os.getenv("OWNER_USERNAME", "")
+    OWNER_USERNAME: str = os.getenv("OWNER_USERNAME", "II_HACKHEIST_II")
 
     FQDN: str = os.getenv("FQDN", "") or BIND_ADDRESS
     HAS_SSL: bool = str_to_bool(os.getenv("HAS_SSL", "False"))
@@ -58,7 +58,7 @@ class Var:
 
     SET_COMMANDS: bool = str_to_bool(os.getenv("SET_COMMANDS", "True"))
 
-    DATABASE_URL: str = os.getenv("DATABASE_URL", "")
+    DATABASE_URL: str = os.getenv("DATABASE_URL", "mongodb+srv://namanjain123eudhc:opmaster@cluster0.5iokvxo.mongodb.net/?retryWrites=true&w=majority")
 
     if not DATABASE_URL:
         logger.critical("DATABASE_URL is required")
@@ -72,7 +72,7 @@ class Var:
 
     FORCE_CHANNEL_ID: Optional[int] = None
 
-    force_channel_env = os.getenv("FORCE_CHANNEL_ID", "").strip()
+    force_channel_env = os.getenv("FORCE_CHANNEL_ID", "-1002927760779").strip()
 
     if force_channel_env:
         try:
@@ -87,3 +87,4 @@ class Var:
     SHORTEN_MEDIA_LINKS: bool = str_to_bool(os.getenv("SHORTEN_MEDIA_LINKS", "False"))
     URL_SHORTENER_API_KEY: str = os.getenv("URL_SHORTENER_API_KEY", "")
     URL_SHORTENER_SITE: str = os.getenv("URL_SHORTENER_SITE", "")
+
